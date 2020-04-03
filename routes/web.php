@@ -47,3 +47,39 @@ Route::resource('admin/posts', 'AdminPostsController',['names'=>[
     'edit'=>'admin.posts.edit'
 
 ]]);
+
+Route::resource('admin/categories', 'AdminCategoriesController',['names'=>[
+
+    'index'=>'admin.categories.index',   
+    'create'=>'admin.categories.create',
+    'store'=>'admin.categories.store',
+    'edit'=>'admin.categories.edit'
+
+]]);
+
+Route::resource('media', 'AdminMediasController',['names'=>[
+
+    'index'=>'media.index',   
+    'create'=>'media.create',
+    'store'=>'media.store',
+    'edit'=>'media.edit'
+
+]]);
+
+Route::resource('admin/comments', 'PostCommentsController',['names'=>[
+
+    'index'=>'admin.categories.index',   
+    'create'=>'admin.categories.create',
+    'store'=>'admin.categories.store',
+    'edit'=>'admin.categories.edit'
+
+]]);
+Route::resource('admin/comment/replies', 'CommentRepliesController',['names'=>[
+
+    'index'=>'admin.categories.index',   
+    'create'=>'admin.categories.create',
+    'store'=>'admin.categories.store',
+    'edit'=>'admin.categories.edit'
+
+]]);
+

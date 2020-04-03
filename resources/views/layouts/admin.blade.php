@@ -15,6 +15,7 @@
     <link href="{{asset('js/libs.js')}}" rel="stylesheet">
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    @yield('styles')
 
    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -152,11 +153,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="{{route('admin.categories.index')}}">All Categories</a>
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="{{route('admin.categories.create')}}">Create Category</a>
                             </li>
 
                         </ul>
@@ -168,11 +169,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{route('media.index')}}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{route('media.create')}}">Upload Media</a>
                             </li>
 
                         </ul>
