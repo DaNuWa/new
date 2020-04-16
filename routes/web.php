@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
 
  
 Route::get('/admin', function () {
@@ -68,18 +69,24 @@ Route::resource('media', 'AdminMediasController',['names'=>[
 
 Route::resource('admin/comments', 'PostCommentsController',['names'=>[
 
-    'index'=>'admin.categories.index',   
-    'create'=>'admin.categories.create',
-    'store'=>'admin.categories.store',
-    'edit'=>'admin.categories.edit'
+    'index'=>'admin.comments.index',   
+    'create'=>'admin.comments.createReply',
+    'store'=>'admin.comments.store',
+    'edit'=>'admin.comments.edit',
+    'show'=>'admin.comments.show'
 
 ]]);
 Route::resource('admin/comment/replies', 'CommentRepliesController',['names'=>[
 
-    'index'=>'admin.categories.index',   
-    'create'=>'admin.categories.create',
-    'store'=>'admin.categories.store',
-    'edit'=>'admin.categories.edit'
+    'index'=>'admin.comment.replies.index',   
+    'create'=>'admin.comment.replies.create',
+    'store'=>'admin.comment.replies.store',
+    'edit'=>'admin.comment.replies.edit',
+    'show'=>'admin.comment.replies.show',
+   
 
 ]]);
 
+Route::group(['middleware'=>'auth'],function(){
+    Route::post('comment/reply','CommentRepliesController@createReply');
+});

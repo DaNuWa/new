@@ -12,7 +12,7 @@
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('js/libs.js')}}" rel="stylesheet">
+
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
     @yield('styles')
@@ -143,6 +143,10 @@
                             <li>
                                 <a href="{{route('admin.posts.create')}}">Create Post</a>
                             </li>
+                            <li>
+                                <a href="{{route('admin.comments.index')}}">Comments</a>
+                            </li>
+
 
                         </ul>
                         <!-- /.nav-second-level -->

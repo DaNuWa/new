@@ -8724,3 +8724,9 @@ table.dataTable thead .sorting:after {
 .toppad
 {margin-top:20px;
 }
+
+.table-dark
+{
+    background-color: black;
+    color: white;
+}

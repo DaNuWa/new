@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePostsTable extends Migration
 {
-/*    public function up()
+  /* public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->engine = 'InnoDB';
@@ -14,6 +14,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->nullable();
             $table->integer('photo_id')->unsigned()->nullable();
+            $table->string('slug')->nullable();
             $table->string('title');
             $table->text('body');
             $table->timestamps();

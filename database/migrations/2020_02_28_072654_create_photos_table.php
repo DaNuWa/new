@@ -6,12 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePhotosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+   
+ /*   public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -20,13 +16,9 @@ class CreatePhotosTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+ 
     public function down()
     {
         Schema::dropIfExists('photos');
-    }
+    }*/
 }

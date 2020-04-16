@@ -20,8 +20,8 @@
 
  {!! Form::close() !!}
 
-<table class="table">
-       <thead>
+<table class="table ">
+       <thead class="table-dark">
          <tr>
              <th>Id</th>
              <th>Name</th>

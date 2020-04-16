@@ -18,7 +18,7 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
+        $posts=Post::paginate(2);
         return view('admin.posts.index',compact('posts'));
     }
 
@@ -97,16 +97,32 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         
-        $input=$request->all();
-        if($file=$request->file['photo_id'])
-        {
-            $name=time().$file->getClientOriginalName();
-            $file->move('images',$name);
-            $photo=Photo::create(['file'=>$name]);
-            $input['photo_id']=$photo->id;
+        $input = $request->all();
+
+
+
+        if($file = $request->file('photo_id')){
+
+
+            $name = time() . $file->getClientOriginalName();
+
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+
+            $input['photo_id'] = $photo->id;
+
+
         }
-        Auth::user()->posts()->whereId($id)->first()->update(['name'=>$input]);
-        return redirect('/admin/posts/');
+
+
+      Auth::user()->posts()->whereId($id)->first()->update($input);
+
+
+        return redirect('/admin/posts');
+
     }
 
     /**
@@ -122,5 +138,16 @@ class AdminPostsController extends Controller
         $post->delete();
         Session::flash('deleted_post','The post has been deleted');
         return redirect('admin/posts');
+    }
+
+    public function post($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();  
+
+        $comments = $post->comments()->whereIsActive(1)->get();
+
+
+        return view('post', compact('post','comments'));
+
     }
 }
